@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import android.view.View;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -13,7 +11,6 @@ import com.google.gson.*;
 
 
 import org.apache.commons.io.IOUtils;
-import org.json.JSONObject;
 
 
 public class CanonAPI {
@@ -33,7 +30,6 @@ public class CanonAPI {
 
             if(statusCode == 200) {
                 init = true;
-                System.out.println("helllo");
                 halfPress();
 
             } else {
@@ -85,21 +81,16 @@ public class CanonAPI {
         try {
             String path = "/ver100/shooting/control/shutterbutton";
             HttpURLConnection con = getPostConnectionHelper(url, path);
-            System.out.println("helo3");
             JsonObject json = new JsonObject();
             json.addProperty("af", true);
-            System.out.println("helo2");
             OutputStream os = con.getOutputStream();
-            System.out.println("helo");
             os.write(json.toString().getBytes("UTF-8"));
             os.close();
-            System.out.println("helo4");
             int statusCode = con.getResponseCode();
             System.out.println(statusCode);
             if(statusCode == 200) {
                 return true;
             }
-            System.out.println("helo5");
         } catch (Exception e) {
             System.out.println(e.toString());
         }

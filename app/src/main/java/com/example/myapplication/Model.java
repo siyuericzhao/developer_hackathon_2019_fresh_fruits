@@ -12,7 +12,6 @@ import com.google.gson.*;
 
 
 import java.io.File;
-import java.net.HttpURLConnection;
 import java.util.List;
 
 import static com.example.myapplication.CanonAPI.url;
